@@ -28,10 +28,22 @@ const Dashboard = () => {
     setUser(json.data.name);
   }
 
+  // send logout request
+  const logoutUser = async () => {
+    const res = await fetch('http://localhost:4000/auth/logout', {
+      credentials: 'include'
+    })
+    if (res.status != 200) {
+      console.log('[+] Unable to logout user');
+      return;
+    }
+    navigate('/login');
+  }
+
   return (
     <div className='Dashboard'>
       <h1>Hallo {user}</h1>
-      <button>Move</button>
+      <button onClick={logoutUser}>Logout</button>
     </div>
   )
 }
