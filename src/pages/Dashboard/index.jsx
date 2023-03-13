@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth"
 
 const Dashboard = () => {
@@ -14,7 +14,7 @@ const Dashboard = () => {
       console.log('[+] No user found in context, loading user');
       loadUser();
     }
-  })
+  }, [])
 
   // fetch user and set context
   const loadUser = async () => {
@@ -25,7 +25,8 @@ const Dashboard = () => {
       navigate('/login');
     }
     const json = await res.json();
-    setUser(json.data.name);
+    setUser(json.data.username);
+    setLoading(false)
   }
 
   // send logout request
@@ -42,7 +43,7 @@ const Dashboard = () => {
 
   return (
     <div className='Dashboard'>
-      <h1>Hallo {user}</h1>
+      <h1>Guten Tag, {user}!</h1>
       <button onClick={logoutUser}>Logout</button>
     </div>
   )
