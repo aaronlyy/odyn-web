@@ -1,0 +1,65 @@
+.Dashboard {
+    display: flex;
+    gap: .5rem;
+    height: 100%;
+}
+
+.Dashboard__sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(26, 26, 30);
+    height: 100%;
+    padding: 1rem;
+}
+
+.Dashboard__sidebar-user {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.Dashboard__sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 100%;
+}
+
+.Dashboard__sidebar-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Dashboard__sidebar-nav li {
+    width: 100%;
+}
+
+.Dashboard__sidebar-nav .nav-btn {
+    width: 100%;
+    text-align: center;
+    padding: .5rem;
+    border-radius: 10px;
+}
+
+.Dashboard__sidebar-nav .nav-btn:hover {
+    background-color: rgb(36, 36, 40);
+}
+
+.Dashboard__sidebar-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.Dashboard__sidebar-user button {
+    width: 100%
+}
+
+.Dashboard__content {
+
+}

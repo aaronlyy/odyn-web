@@ -1,6 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth"
+
+import './index.css'
 
 const Dashboard = () => {
 
@@ -26,7 +28,6 @@ const Dashboard = () => {
     }
     const json = await res.json();
     setUser(json.data.username);
-    setLoading(false)
   }
 
   // send logout request
@@ -43,8 +44,24 @@ const Dashboard = () => {
 
   return (
     <div className='Dashboard'>
-      <h1>Guten Tag, {user}!</h1>
-      <button onClick={logoutUser}>Logout</button>
+      <div className="Dashboard__sidebar">
+        <div className="Dashboard__sidebar-nav">
+        <h1>Odyn Web v0.0.1</h1>
+          <ul>
+            <li><Link to='/'><div className="nav-btn">Dashboard</div></Link></li>
+            <li><Link to='/ddns'><div className="nav-btn">DDNS</div></Link></li>
+            <li><Link to='/users'><div className="nav-btn">Benutzer</div></Link></li>
+            <li><Link to='/settings'><div className="nav-btn">Einstellungen</div></Link></li>
+          </ul>
+        </div>
+        <div className="Dashboard__sidebar-user">
+          <p>Eingeloggt als: {user}</p>
+          <button onClick={logoutUser}>Logout</button>
+        </div>
+      </div>
+      <div className="Dashboard__content">
+        <Outlet/>
+      </div>
     </div>
   )
 }
